@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/artclub/static/css/main.2143d1c5.chunk.css",
-    "main.js": "/artclub/static/js/main.4e4f3bf7.chunk.js",
-    "main.js.map": "/artclub/static/js/main.4e4f3bf7.chunk.js.map",
+    "main.js": "/artclub/static/js/main.bd87171b.chunk.js",
+    "main.js.map": "/artclub/static/js/main.bd87171b.chunk.js.map",
     "runtime-main.js": "/artclub/static/js/runtime-main.9ad9fd8a.js",
     "runtime-main.js.map": "/artclub/static/js/runtime-main.9ad9fd8a.js.map",
-    "static/js/2.7dce0d9f.chunk.js": "/artclub/static/js/2.7dce0d9f.chunk.js",
-    "static/js/2.7dce0d9f.chunk.js.map": "/artclub/static/js/2.7dce0d9f.chunk.js.map",
+    "static/js/2.f31a10d2.chunk.js": "/artclub/static/js/2.f31a10d2.chunk.js",
+    "static/js/2.f31a10d2.chunk.js.map": "/artclub/static/js/2.f31a10d2.chunk.js.map",
     "index.html": "/artclub/index.html",
     "static/css/main.2143d1c5.chunk.css.map": "/artclub/static/css/main.2143d1c5.chunk.css.map",
-    "static/js/2.7dce0d9f.chunk.js.LICENSE.txt": "/artclub/static/js/2.7dce0d9f.chunk.js.LICENSE.txt"
+    "static/js/2.f31a10d2.chunk.js.LICENSE.txt": "/artclub/static/js/2.f31a10d2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.9ad9fd8a.js",
-    "static/js/2.7dce0d9f.chunk.js",
+    "static/js/2.f31a10d2.chunk.js",
     "static/css/main.2143d1c5.chunk.css",
-    "static/js/main.4e4f3bf7.chunk.js"
+    "static/js/main.bd87171b.chunk.js"
   ]
 }
