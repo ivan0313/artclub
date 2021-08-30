@@ -4,7 +4,7 @@ import Home from './pages/Home'
 function App() {
   return (
     <React.Fragment>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <BrowserRouter>
         <Route path="/" exact component={Home} />
       </BrowserRouter>
     </React.Fragment>
