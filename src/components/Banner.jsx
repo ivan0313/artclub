@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import firebase from '../firebase';
+import { dataProvider } from '../providers'; 
 
-export default function Banner({header, subheader, imgName}) {
+export default function Banner({header, subheader, name}) {
   const [bannerUrl, setBannerUrl] = useState();
 
   useEffect(() => {
-    if (!bannerUrl && imgName) {
-      firebase.fetchImage(`banners/${imgName}`).then((url) =>{
-        setBannerUrl(url);
+    if (!bannerUrl && name) {
+      dataProvider.getList('pages', {
+        pagination: { page: 1 , perPage: 1 }, 
+        sort: { field: 'id', order: 'ASC' }, 
+        filter: {"name": name},
+      }).then((res) =>{
+        setBannerUrl(res.data[0].banner.src);
       }).catch(err => {
         console.error(err);
       })

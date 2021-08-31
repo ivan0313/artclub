@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Banner from '../components/Banner';
 import PostCard from '../components/posts/PostCard';
-import firebase from '../firebase';
+import { dataProvider } from '../providers';
 
 export default class Home extends Component {
   constructor(props) {
@@ -12,8 +12,12 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
-    firebase.getPosts().then(posts => {
-      this.setState({posts: posts})
+    dataProvider.getList('posts', {
+      pagination: { page: 1 , perPage: 100 }, 
+      sort: { field: 'id', order: 'ASC' }, 
+      filter: {},
+    }).then(res => {
+      this.setState({posts: res.data})
     }).catch(err => {
       console.error(err);
     })
@@ -21,10 +25,10 @@ export default class Home extends Component {
 
   render() {
     const { posts } = this.state;
-
+    
     return (
       <React.Fragment>
-        <Banner header="Art Club HKUSU" subheader="香港大學學生會美術學會" imgName="index-bg.jpg"/>
+        <Banner header="Art Club HKUSU" subheader="香港大學學生會美術學會" name="home"/>
         {/* Main Content */}
         <div className="container px-4 px-lg-5">
           <div className="row gx-4 gx-lg-5 justify-content-center">
