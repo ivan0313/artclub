@@ -4,8 +4,11 @@ import Home from './pages/Home';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import Admin from './pages/Admin';
-
-
+import Post from "./pages/Post";
+import About from "./pages/About";
+import Events from './pages/Events';
+import Gallery from './pages/Gallery';
+import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -20,6 +23,11 @@ function App() {
           <Route path="/">
             <Nav />
             <Route path="/" exact component={Home} />
+            <Route path="/post" exact component={Post} />
+            <Route path="/about" exact component={About} />
+            <Route path="/events" exact component={Events} />
+            <Route path="/gallery" exact component={Gallery} />
+            <Route path="/contact" exact component={Contact} />
             <Footer />
           </Route>
 

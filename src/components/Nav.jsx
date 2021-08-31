@@ -7,6 +7,7 @@ const pages = [
   {name: "Gallery", url: '/gallery'},
   {name: "Contact", url: '/contact'},
 ]
+
 export default class Nav extends Component {
   componentDidMount() {
     let scrollPos = 0;
@@ -20,7 +21,6 @@ export default class Nav extends Component {
             if (currentTop > 0 && mainNav.classList.contains('is-fixed')) {
                 mainNav.classList.add('is-visible');
             } else {
-                console.log(123);
                 mainNav.classList.remove('is-visible', 'is-fixed');
             }
         } else {
@@ -52,7 +52,7 @@ export default class Nav extends Component {
             <div className="collapse navbar-collapse" id="navbarResponsive">
               <ul className="navbar-nav ms-auto py-4 py-lg-0">
                 { pages.map(page => (
-                  <li className="nav-item"><a className="nav-link px-lg-3 py-3 py-lg-4" href={page.url}>{page.name}</a></li>
+                  <li className="nav-item"><a className="nav-link px-lg-3 py-3 py-lg-4" href={`/artclub${page.url}`}>{page.name}</a></li>
                 ))}
               </ul>
             </div>

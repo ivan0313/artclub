@@ -1,4 +1,4 @@
-import { List, Datagrid, TextField, ShowButton, EditButton } from 'react-admin';
+import { List, Datagrid, TextField, ShowButton, EditButton, BooleanField, DateField } from 'react-admin';
 
 const PostList = (props) => (
   <List {...props}>
@@ -6,6 +6,9 @@ const PostList = (props) => (
           <TextField source="id" />
           <TextField source="heading" />
           <TextField source="subHeading" />
+          <DateField source="createdOn" label="Created Date"/>
+          <DateField source="lastupdate" label="Last Modified Date"/>
+          <BooleanField source="approved" />
           <ShowButton />
           <EditButton />
       </Datagrid>
