@@ -14,6 +14,8 @@ export default class Events extends Component {
   }
 
   componentDidMount() {
+    document.title = "Events";
+    
     dataProvider.getList('posts', {
       pagination: { page: 1 , perPage: 100 }, 
       sort: { field: 'id', order: 'ASC' }, 
@@ -66,7 +68,7 @@ export default class Events extends Component {
                   { posts.map((post, index) => (
                     index % 2 === 0 ? (
                       <div className="timeline-container right">
-                        <a href={`/artclub/post?id=${post.id}`}>
+                        <a href={`/post?id=${post.id}`}>
                           <div className="timeline-content outlined">
                             <h2>{post.heading}</h2>
                             <p>{post.subHeading}</p>
@@ -76,7 +78,7 @@ export default class Events extends Component {
                       </div>
                     ):(
                       <div className="timeline-container left">
-                        <a href={`/artclub/post?id=${post.id}`}>
+                        <a href={`/post?id=${post.id}`}>
                           <div className="timeline-content outlined">
                             <h2>{post.heading}</h2>
                             <p>{post.subHeading}</p>

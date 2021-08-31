@@ -17,11 +17,12 @@ export default class Post extends Component {
     const id = new URLSearchParams(search).get("id");
     dataProvider.getOne('posts', {id: id}).then(res => {
       this.setState({post: res.data})
+      document.title = res.data.heading;
     }).catch(err => {
       console.error(err);
     })
   }
-
+  
   render() {
     const { post } = this.state;
     
@@ -61,7 +62,19 @@ export default class Post extends Component {
                   <div dangerouslySetInnerHTML={{ __html: post.content }} />
                   
                   <p>Post written on {formatDate(post.createdOn)},  {post.lastupdate && "last updated on " + formatDate(post.lastupdate)}</p>
-
+                  
+                  { post.images && ( 
+                    post.images.map(image => (
+                      <React.Fragment>
+                      <a href={image.src}>
+                        <img className="img-fluid" src={image.src} alt=""/>
+                        <span className="caption text-muted"></span>
+                      </a>
+                      <br />
+                    </React.Fragment>
+                    ))
+                  )}
+                  
                 </div>
               </div>
             </div>

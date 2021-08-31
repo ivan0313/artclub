@@ -35,7 +35,27 @@ export default class Nav extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll');
+    let scrollPos = 0;
+    const mainNav = document.getElementById('mainNav');
+    const headerHeight = mainNav.clientHeight;
+    window.removeEventListener('scroll', function() {
+      const currentTop = document.body.getBoundingClientRect().top * -1;
+      if ( currentTop < scrollPos) {
+          // Scrolling Up
+          if (currentTop > 0 && mainNav.classList.contains('is-fixed')) {
+              mainNav.classList.add('is-visible');
+          } else {
+              mainNav.classList.remove('is-visible', 'is-fixed');
+          }
+      } else {
+          // Scrolling Down
+          mainNav.classList.remove(['is-visible']);
+          if (currentTop > headerHeight && !mainNav.classList.contains('is-fixed')) {
+              mainNav.classList.add('is-fixed');
+          }
+      }
+      scrollPos = currentTop;
+  });
   }
   
   render() {
@@ -52,7 +72,7 @@ export default class Nav extends Component {
             <div className="collapse navbar-collapse" id="navbarResponsive">
               <ul className="navbar-nav ms-auto py-4 py-lg-0">
                 { pages.map(page => (
-                  <li className="nav-item"><a className="nav-link px-lg-3 py-3 py-lg-4" href={`/artclub${page.url}`}>{page.name}</a></li>
+                  <li className="nav-item"><a className="nav-link px-lg-3 py-3 py-lg-4" href={`${page.url}`}>{page.name}</a></li>
                 ))}
               </ul>
             </div>

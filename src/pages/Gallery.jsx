@@ -13,6 +13,8 @@ export default class Gallery extends Component {
   }
 
   componentDidMount() {
+    document.title = "Gallery";
+
     dataProvider.getList('pages', {
       pagination: { page: 1 , perPage: 1 },
       sort: { field: 'id', order: 'ASC' }, 

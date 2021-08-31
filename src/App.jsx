@@ -13,7 +13,7 @@ import Contact from './pages/Contact';
 function App() {
   return (
     <div>
-      <Router basename="/artclub">
+      <Router>
         
         <Switch>
           <Route path="/admin" exact>
@@ -23,6 +23,7 @@ function App() {
           <Route path="/">
             <Nav />
             <Route path="/" exact component={Home} />
+            <Route path="/dist" exact component={Home} />  {/* Legacy code from template version of the website */}
             <Route path="/post" exact component={Post} />
             <Route path="/about" exact component={About} />
             <Route path="/events" exact component={Events} />

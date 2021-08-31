@@ -14,6 +14,8 @@ export default class AdminPage extends Component {
   }
 
   componentDidMount() {
+    document.title = "Admin";
+
     if(!this.state.currentUser) {
     }
   }

@@ -14,6 +14,9 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
+    if (window.location.pathname === '/dist')
+      document.title = "Art Club HKU - dist";
+
     dataProvider.getList('posts', {
       pagination: { page: 1 , perPage: 100 }, 
       sort: { field: 'id', order: 'ASC' }, 

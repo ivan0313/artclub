@@ -11,6 +11,8 @@ export default class About extends Component {
     }
   }
   componentDidMount() {
+    document.title = "About";
+    
     dataProvider.getList('pages', {
       pagination: { page: 1 , perPage: 1 }, 
       sort: { field: 'id', order: 'ASC' }, 
