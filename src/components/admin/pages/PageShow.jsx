@@ -1,37 +1,41 @@
 import React from 'react';
 import { UrlField, Show, SimpleShowLayout, TextField, ImageField, RichTextField } from 'react-admin';
 
-const PostShow = (props) => (
-  <Show {...props}>
-    <SimpleShowLayout>
-      <TextField source="id" />
-      <TextField source="name" />
-      <ImageField source="banner.src"/>
+const PostShow = (props) => {
+  return (
+    <Show {...props}>
+      <SimpleShowLayout>
 
-      {props.name === 'about' && (
-        <React.Fragment>
-          <RichTextField source="contentUpper" />
-          <ImageField source="imgMid.src"/>
-          <RichTextField source="contentLower" />
-        </React.Fragment>
-      )}
+        <TextField source="id" />
+        <TextField source="name" />
+        <ImageField source="banner.src"/>
 
-      {props.name === 'contact' && (
-        <React.Fragment>
-          <RichTextField source="content" />
-          <ImageField source="imgDir.src"/>
-          <UrlField source="regMemberLink" label="Link to register as new member"/>
-        </React.Fragment>
-      )}
+        {/* {false === 'about' && (
+          <React.Fragment>
+            <RichTextField source="contentUpper" />
+            <ImageField source="imgMid.src"/>
+            <RichTextField source="contentLower" />
+          </React.Fragment>
+        )}
 
-      {props.name === 'gallery' && (
-        <React.Fragment>
-          <TextField source="descriptions" />
-        </React.Fragment>
-      )}
+        {false === 'contact' && (
+          <React.Fragment>
+            <RichTextField source="content" />
+            <ImageField source="imgDir.src"/>
+            <UrlField source="regMemberLink" label="Link to register as new member"/>
+            <UrlField source="dirVidLink" label="Link to Youtube Video on how to get to Art Studio"/>
+          </React.Fragment>
+        )}
 
-    </SimpleShowLayout>
-  </Show>
-);
+        {false === 'gallery' && (
+          <React.Fragment>
+            <TextField source="descriptions" />
+          </React.Fragment>
+        )} */}
+
+      </SimpleShowLayout>
+    </Show>
+  )
+};
 
 export default PostShow;

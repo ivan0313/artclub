@@ -39,7 +39,9 @@ const PageEdit = (props) => (
                   <ImageField source="src" title="title"/>
                 </ImageInput>
 
-                <TextInput source="regMemberLink" label="Link to register as new member"/>
+                <TextInput source="regMemberLink" label="Register member link"/>
+                <br />
+                <TextInput source="dirVidLink" label="Studio direction Youtube Link"/>
 
               </React.Fragment>
             )

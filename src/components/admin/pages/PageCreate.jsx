@@ -39,7 +39,8 @@ const PostCreate = (props) => (
                 </ImageInput>
 
                 <TextInput source="regMemberLink" label="Link to register as new member"/>
-
+                <TextInput source="dirVidLink" label="Link to Youtube Video on how to get to Art Studio"/>
+                
               </React.Fragment>
             )
           }

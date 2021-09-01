@@ -25,6 +25,13 @@ export default class Contact extends Component {
     })
   }
 
+  getYoutubeUrl = (vidUrl) => {
+    const embedUrl = "https://www.youtube.com/embed/"
+    const vidId = vidUrl.substr(vidUrl.lastIndexOf('/') + 1);
+    console.debug(embedUrl + vidId)
+    return embedUrl + vidId;
+  }
+  
   render() {
     const { page } = this.state;
     
@@ -78,6 +85,17 @@ export default class Contact extends Component {
               <div className="row gx-4 gx-lg-5 justify-content-center">
                 <img src={page.imgDir.src} alt="" />
               </div>
+              <br />
+              {page.dirVidLink && (
+                <div className="row gx-4 gx-lg-5 justify-content-center">
+                  <iframe 
+                    height="700"
+                    src={this.getYoutubeUrl(page.dirVidLink)}
+                    title="Direction to Art Studio"
+                  >
+                  </iframe> 
+                </div>
+              )}
             </div>
           ): <Loader />}
           
