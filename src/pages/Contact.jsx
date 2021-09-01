@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { dataProvider } from '../providers';
 import Banner from '../components/Banner';
 import Loader from '../components/Loader';
+import { pageview } from '../googleAnalytics';
 
 export default class Contact extends Component {
   constructor(props) {
@@ -13,7 +14,8 @@ export default class Contact extends Component {
 
   componentDidMount() {
     document.title = "Contact";
-
+    pageview(document.title, window.location.pathname);
+    
     dataProvider.getList('pages', {
       pagination: { page: 1 , perPage: 1 }, 
       sort: { field: 'id', order: 'ASC' }, 
@@ -41,12 +43,15 @@ export default class Contact extends Component {
         <main className="mb-4">
           { page ? (
             <div className="container px-4 px-lg-5">
-              <div className="row gx-4 gx-lg-5 justify-content-center">
-                <div className="col-md-10 col-lg-8 col-xl-7">
-                  <p>Register as art club member</p>
-                  <a className="centerize" href="https://forms.gle/H2TDBhJv6WUSXRmT7"><button className="btn btn-primary text-uppercase">Signup</button></a>
+              { page.regMemberLink && (
+                <div className="row gx-4 gx-lg-5 justify-content-center">
+                  <div className="col-md-10 col-lg-8 col-xl-7">
+                    <p>Register as art club member</p>
+                    <a className="centerize" href={page.regMemberLink}><button className="btn btn-primary text-uppercase">Signup</button></a>
+                  </div>
                 </div>
-              </div>
+              )}
+              
               <br />
               <div className="row gx-4 gx-lg-5 justify-content-center">
                 <div className="col-md-10 col-lg-8 col-xl-7">

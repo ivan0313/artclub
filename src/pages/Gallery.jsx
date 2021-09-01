@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Banner from '../components/Banner';
-import { dataProvider } from '../providers'; 
+import { dataProvider } from '../providers';
+import { pageview } from '../googleAnalytics';
 
 export default class Gallery extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ export default class Gallery extends Component {
 
   componentDidMount() {
     document.title = "Gallery";
+    pageview(document.title, window.location.pathname);
 
     dataProvider.getList('pages', {
       pagination: { page: 1 , perPage: 1 },

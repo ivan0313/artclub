@@ -3,6 +3,7 @@ import { dataProvider } from '../providers';
 import Banner from '../components/Banner'
 import { formatDate } from '../utils';
 import Loader from '../components/Loader';
+import { pageview } from '../googleAnalytics';
 
 export default class Events extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ export default class Events extends Component {
 
   componentDidMount() {
     document.title = "Events";
+    pageview(document.title, window.location.pathname);
     
     dataProvider.getList('posts', {
       pagination: { page: 1 , perPage: 100 }, 
@@ -50,7 +52,12 @@ export default class Events extends Component {
       dates.forEach(ele => {
         output.push(formatDate(ele.date, 'short'))
       })
-      return output.join(', ')
+      if (output.length > 3) {
+        return [output[0], output[1], output[2]].join(', ') + ', ...'
+      } else {
+        return output.join(', ')
+      }
+      
     }
     return ''
   }

@@ -3,6 +3,7 @@ import Banner from '../components/Banner';
 import Loader from '../components/Loader';
 import PostCard from '../components/posts/PostCard';
 import { dataProvider } from '../providers';
+import { pageview } from '../googleAnalytics';
 
 export default class Home extends Component {
   constructor(props) {
@@ -14,8 +15,13 @@ export default class Home extends Component {
   }
 
   componentDidMount() {
-    if (window.location.pathname === '/dist')
+    if (window.location.pathname === '/dist') {
       document.title = "Art Club HKU - dist";
+      pageview(document.title, window.location.pathname);
+    } else {
+      pageview(document.title, window.location.pathname);
+    }
+      
 
     dataProvider.getList('posts', {
       pagination: { page: 1 , perPage: 100 }, 

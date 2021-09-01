@@ -3,6 +3,7 @@ import Banner from '../components/Banner';
 import Loader from '../components/Loader';
 import { dataProvider } from '../providers';
 import { formatDate } from '../utils';
+import { pageview } from '../googleAnalytics';
 
 export default class Post extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ export default class Post extends Component {
     dataProvider.getOne('posts', {id: id}).then(res => {
       this.setState({post: res.data})
       document.title = res.data.heading;
+      pageview(res.data.heading, window.location.pathname);
     }).catch(err => {
       console.error(err);
     })

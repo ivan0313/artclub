@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { dataProvider } from '../providers'; 
 import Banner from '../components/Banner';
 import Loader from '../components/Loader';
+import { pageview } from '../googleAnalytics';
 
 export default class About extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ export default class About extends Component {
   }
   componentDidMount() {
     document.title = "About";
+    pageview(document.title, window.location.pathname);
     
     dataProvider.getList('pages', {
       pagination: { page: 1 , perPage: 1 }, 
